@@ -16,16 +16,83 @@
     Make sure to list the items you changed for points in the Readme.md. I cannot guess your intentions!
 
 */
+->intro
 
-For generations your ancestors endlessly traveled the desolate wastelands of the north in hopes of finding a place where they could settle. Food and water were scarce and slowly they were dying off from starvation or disease. However their long sufferings were not in vain, one day from far off in the distance they saw what must have been a dazzling display of lights to a people who had never seen technology so advanced. They approached the glowing city that you now know as...
-*[“Lighthouse.”] -> intro_cont
+== intro ==
+{Hello!!! It is your lucky day! You have been selected to test run my real life dating simulator!| }
+* ["AH-! What the hell are you?!"] -> what
+* [Swat at the strange flying creature.] -> swat
+* ["I did not agree to this."]
+Haha! You're funny. Everyone wants romance! 
+-> romance
 
-== intro_cont ==
-To this day no one knows who inhabited Lighthouse before but when they found the city it was empty of all life. However the city was fully operational, hundreds of thousands of robots continuing to go about their tasks as if they weren’t working in a ghost town. Soon your ancestors made Lighthouse their own. Through the infrastructure left behind they were able to thrive. Over time the population grew to better fit the massive city and there was never, and has never been since, a time of such peace.
-*But good things can't last
-Unfortunately that peace was taken by a group of power hungry individuals, unsatisfied with their already prosperous life. They led a rebellion against Lighthouse, taking the capitol building and driving the previous government and those that supported them to the outskirts of the city.
+== what ==
+Don't be alarmed! I am your friend! My name is Bee and I will be your Narrator and Host! Now don't mind my adorably strange appearence. 
+-> intro
 
-Once you do she begins to speak. “I’m sure you’ve heard about a potential mission? Well, as our top agent of your year, you have been chosen for it. For this mission you will be infiltrating the capital. They are celebrating 50 years since their coup. Because of this there are hundreds more people in and out all working on various projects. One such project is a documentary. You’ll be joining the filming crew and using this position to gain access to the robot’s control center. From there you will be able to let the rest of us in, where we can then take back control. 
-“Be warned, there are six robots unlike the mindless drones you are used to working with. They follow no one’s orders. They are highly unpredictable making them dangerous. There's no telling whose side they’re on or what they are working towards. Tread carefully around them. 
-“We are all counting on you. You leave first thing in the morning.” 
+== swat ==
+OW!!! Hey! I'm here to help you! Your loveless life was just so sad to me! So I will help your pathetic existance! 
+-> romance
+
+== romance ==
+* [You don't know what this is and you're going to ignore it. You have laundry to do anyway.] -> ignore
+* ["I don't need your help with romance."] -> need
+* ["Alright then, 'Bee.' What does this real life dating simulator look like?"]
+-> explain
+
+ == ignore ==
+ Hey. Heeeeey! I know you can see me!! Stop doing your laundry! Heeeellloooo! HELLO! 
+ * ["Did you just- steal my laundry?"] 
+ You did it to yourself! You were ignoring me and I need you to play my game!
+ -> ignore2
+ 
+ == ignore2 ==
+ *["Where did it even go?"]
+ Don't worry about it. 
+-> romance
+ 
+ == need ==
+ Yes you do. You have no love life. 
+ *["I'm married to my job."] -> ridiculous
+ *["I don't trust your taste."]
+ -> ridiculous
+ 
+ == ridiculous==
+ Ridiculous. Now can we start? You don't actually have a choice by the way. 
+ I'll make your life hell till you agree. Hahahahah. 
+ Just kidding! 
+ No but really have fun getting anything productive done! 
+ heheehehe..
+ Don't look at me like that. 
+ *["Alright. Let's get this over with. Come on, what do I have to do?"]
+ -> explain
+ 
+ == explain ==
+ I'm so happy you're on board! 
+ *["I'm not, but please, do continue."] ->explain2
+ 
+ ==explain2 ==
+ I will!
+ So basically I will be manipulating your daily life to set up ideal situations for romance to blossom! 
+ All you have to do is follow the flow of the story to maximize romance points! Something I will be keeping track of for you! 
+ There will be three romancable men, good news for you is you already know one! 
+ * ["Oh god- promise me it's not a co-worker."]
+ ...
+ Listen- 
+ He's quite the gentleman. 
+ He may be older than you but- 
+-> explain3
+
+== explain3 ==
+* [It's Captain Davor, isn't it? You can't make me romance a commanding officer."]
+Ha hahaha- 
+Um well- 
+Yes? 
+Back on topic! 
+You 
 -> END
+
+
+
+
+
