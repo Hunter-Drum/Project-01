@@ -172,7 +172,10 @@ You know I'm just trying to help you??
 ~ late = late +1
 *[I'll try your game IF you give me back my wallet and don't interfere with my job.] ->deal1
 *["Listen, this isn't helping me. I'm not playing your game. I have actully important things to be doing."]
-No 
+Haha
+You think I care?
+No no. 
+
 
 == deal1 ==
 ... 
@@ -186,9 +189,12 @@ If you agree to the terms let's seal it with a handshake.
 *[Shake hand.] -> shake
 *["That's not what I said. I said I'd try your game."] -> e_deal
 *[This isn't worth it. Just go to work.]
+Are you ignoring me again? 
+Ugh whatever. 
+Time to goooo! 
 -> grab
+
 ==e_deal ==
-~ late = late + 1
 ~ Bee = Bee -1
 GAH! 
 You're being so difficult! 
@@ -198,7 +204,7 @@ Or you get the no messing with police work thing.
 *["I want the promise. My work is too important."] ->promise
 *["Just give me my wallet. This is insane."] 
 ~Bee = Bee -1
-~late = late +2
+~ Bee = Bee +3 
 ~ wallet = wallet +1
 Whatever. 
 Here.
@@ -209,8 +215,7 @@ You said so.
 
 == shake==
 ~ deal = deal + 1
-~ Bee = Bee + 4
-~ late = late +2
+~ Bee = Bee + 5
 ~ wallet = wallet +1
 Ha-
 Hahahaha
@@ -223,7 +228,7 @@ Fine.
 Shake my hand and we will have a deal. 
 *[Shake hand.]
 ~ Bee = Bee + 1
-~ late= late + 2
+~ late= late + 1
 ~ edited_deal = edited_deal +1
 God- 
 That wasn't too hard was it?!
