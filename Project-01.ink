@@ -28,6 +28,8 @@ VAR handcuff_key = 1
 VAR taser = 1
 VAR radio = 1
 VAR late = 0
+VAR deal = 0
+VAR edited_deal = 0
 
 
 ->intro
@@ -167,9 +169,70 @@ You know I'm just trying to help you??
 -> b_convo
 
 ==b_convo==
+~ late = late +1
+*[I'll try your game IF you give me back my wallet and don't interfere with my job.] ->deal1
 *["Listen, this isn't helping me. I'm not playing your game. I have actully important things to be doing."]
-No. 
-->END
+No 
+
+== deal1 ==
+... 
+But I reeeealllly want to mess with your job-
+Fine. 
+Here's the deal.
+You play my game.
+Actually play it.
+And I will not mess with your police work.
+If you agree to the terms let's seal it with a handshake. 
+*[Shake hand.] -> shake
+*["That's not what I said. I said I'd try your game."] -> e_deal
+*[This isn't worth it. Just go to work.]
+-> grab
+==e_deal ==
+~ late = late + 1
+~ Bee = Bee -1
+GAH! 
+You're being so difficult! 
+If you're just going to try I'm not doing both. 
+You get the wallet. 
+Or you get the no messing with police work thing. 
+*["I want the promise. My work is too important."] ->promise
+*["Just give me my wallet. This is insane."] 
+~Bee = Bee -1
+~late = late +2
+~ wallet = wallet +1
+Whatever. 
+Here.
+Now you have to try.
+You gave a verbal agreement. 
+You said so. 
+-> grab
+
+== shake==
+~ deal = deal + 1
+~ Bee = Bee + 4
+~ late = late +2
+~ wallet = wallet +1
+Ha-
+Hahahaha
+HAHAHAHAHAHAHAHhhahahaHAAHAHAhahaHAAAHAa
+God you have no idea how good that feels! I do love making deals! 
+Let's get you to work.
+*[Grab your wallet, badge and gun... The concern is settling in.] -> work
+== promise ==
+Fine. 
+Shake my hand and we will have a deal. 
+*[Shake hand.]
+~ Bee = Bee + 1
+~ late= late + 2
+~ edited_deal = edited_deal +1
+God- 
+That wasn't too hard was it?!
+Grab your shit. 
+We're going. -> grab
+
+== grab ==
+*[Grab your {wallet: wallet,} gun, and badge, then head out to work.]
+-> to_work
 
 == search2 ==
 + [Bedroom.] -> bedroom
