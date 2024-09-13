@@ -118,6 +118,7 @@ OW!!! Hey! I'm here to help you! Your loveless life was just so sad to me! So I 
 -> explain3
 == explain3 ==
 * ["It's Captain Davor, isn't it? You can't make me romance a commanding officer."]
+~ late = late +1
 Ha hahaha- 
 Um well- 
 Yes? 
@@ -289,16 +290,13 @@ Are you sorry? -> sound1
 -> time1
 ==time1 ==
 *[Time.] ->save
-
 ==save ==
 *[When you come back to your senses there's a teen crouching in front of you with a nuetral face, their lips are moving but you don't know what they're saying. There's a woman behind them covered in blood. You look around and see other creatures that look like Bee all dead- The woman walks up to you, her cane clicking on the floor, and offers her hand.]
 -> saved
-
 ==saved
 *[Take her hand.]
 "You're safe now." 
 ->END
-
 
 == control ==
 You humans are all so stupid! 
@@ -307,7 +305,6 @@ I can’t do this anymore..
 This isn’t worth it.
 *[With a flash of light the creature is gone. You often wonder if it was ever really there.]
 -> END
-
 
 == deal1 ==
 ~ late = late +1
@@ -457,6 +454,7 @@ To the fun stuff!
 == to_work== 
 You're on track to be {late} minutes late!
 {late == 0:Good Job! Though I had all these plans for if you were late and now I can't do them.}
+{late == 1 or 2: Man I was hoping you'd be later than that... At least I slowed you down a bit!} 
 {late>=35: WOW! I am impressed! I was hoping you'b be late but that's crazy.|}
 Alright! 
 Our heroine protagonist walks down the busy streets of Los Angeles. {late >30: She is running behind and thus moves quickly to try and avoid any-|It appears to be a day like any other. Little does she know-}
@@ -478,7 +476,9 @@ You feel it too??
 I have no idea what that is! 
 Let’s get you to work. 
 Then I can start the REAL narration!
-*{deal == 0} [Stop to look around.] -> look_around
+*{deal == 0} [Stop to look around.] 
+~late = late +1
+-> look_around
 *{deal == 1} [Stop to look around.] -> break_deal
 *[Go to work.] -> to_work2
 
@@ -492,7 +492,6 @@ The sun hangs low in the sky, not yet reaching its afternoon peak-
 *[She's just a random civilian. Keep walking.] ->to_work2
 *[Wave back.]
 ->wave1
-
 == wave1 ==
 Hey- 
 What are you-
@@ -511,7 +510,7 @@ We're going to work.
 == objection ==
 NO!
 NO DON'T GO THAT WAY!!!
-{e_deal= 1: WE HAD A VERBAL AGREEMENT! THIS ISN'T FOLLOWING THE RULES!|}
+{e_deal== 1: WE HAD A VERBAL AGREEMENT! THIS ISN'T FOLLOWING THE RULES!|}
 PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE
 *[You ignore Bee and continue towards the woman. When your feet hit the concrete on the other side of the street you notice Bee is no longer trailing behind you. You walk to the alley, cautiously, very well aware this could be a set up for an ambush. As you turn in you see the woman standing beside a teen with very similar features. It seems they were talking before you arrived but now they look at you. Now that you're closer your attention is drawn to the unsettling lightness of their blue eyes.] 
 "Glad you could make it. I was worried you wouldn't follow." 
@@ -521,7 +520,6 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *["Who are you?"] -> who
 *["Why did you want me to follow you?"] -> why
 *{sus}["You know what that thing was, then?"] -> know
-
 == sus ==
 "Hm. You're right. All things considered it's a terrible spot to kill someone though. And I'm sure there's something stranger on your mind." -> Entropy
 == who ==
@@ -530,8 +528,6 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 "I would ask you to introduce yourself but we know who you are."
 ->puppet
 *["What do you want with me?"] ->why
-
-
  == puppet ==
  *["Of course. Why wouldn't you, a stranger, know that. Tell me what's happening."] ->know
  *[That's not omonous.]
@@ -542,10 +538,9 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *[From Bee?] ->know
 == know ==
 "The creature was a fae. Tricky little things. Prone to mischief. Apparetly it had its sights set on you. But don't worry, I have it taken care of. Consider me pest control." 
-*[Why me?] ->me
+*["Why me?"] ->me
 *["Oh yeah I can see that."] -> see
 *["I want to help."] -> help
-
 ==me==
 "Probably thought I wouldn't talk to you."
 "She's a wanted criminal." 
@@ -554,22 +549,16 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *["How wanted?"]
 "Serial killer."
 "Stop talking." -> me2
-
 ==me2==
-*[Now that Puppet has mentioned this, you do remember a serial killer matching the description with the scars. Arrest her.] ->arrest
+*[Now that Puppet has mentioned this, you do remember a serial killer matching the description with the scars. You reach for your gun. “Sorry but I have a job to do. You’re under arrest.”] ->arrest
 *[Something more is going on here. "We can talk about that later. For now I want to deal with Bee."] ->help
-
 ==arrest==
-*[You reach for your gun. “Sorry but I have a job to do. You’re under arrest.”]
-“Well that’s disappointing. I understand. Afterall, I have a job to do too.” ->arrest2
-== arrest2==
-*[They run in opposite directions. Follow Entropy.] -> arrest3
-*[Follow Puppet.] -> arrest3
-== arrest3 ==
-*[You look follow but they are gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her.]
+“Well that’s disappointing. But I understand. Afterall, I have a job to do too.”
+*[They run in opposite directions. Follow Entropy.] -> arrest2
+*[Follow Puppet.] -> arrest2
+== arrest2 ==
+*[You follow but they are gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her.]
 ->END
-
-
 == see ==
 "It's not here, is it?"
 *[She holds out a card to you. Take it.]
@@ -582,15 +571,13 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *["And if I walk away now?"] -> walk_away
 *["That's fine. I'd rather be prepared."]
 -> help2
-
 == walk_away ==
 "You'll never see me or Bee again."
 *["I'm seeing this through."]-> help2
 *["Then this is goodbye. I never want to encounter something like that again."]-> see3
 == see3==
-*[Entropy and Puppet step around you and out into the street. True to her word, you never see Bee again.]
+*[Entropy and Puppet step around you and out into the street. True to her word, you never see Bee or Entropy again.]
 -> END
-
 == help2 ==
 "Welcome aboard then." 
 ->END
@@ -619,8 +606,45 @@ Come on now. -> break_deal2
 
 
 == to_work2==
-You get to work, bitch. 
-->END
+You arrive to work. 
+Oh this is gonna be good.
+You walk in to see Captain Davor checking his watch. There's a crease on his forhead and his aburn brown hair falls slightly over one eye when his head is tilted down like this. Captain Davor sees you and smiles {late >30: though he seems concerned. “Detective Thatcher! There you are. What happened?”} {late== 1 or 2 or 3 or 4 or 5: teasingly. “{late} minutes and 27 seconds late.} This is very unlike you. I thought you must have been caught up in a horrible accident. Are you alright?” 
+*[“Apologies for being late. It won’t happen again, Captain.”] -> dont_worry
+*[“Sorry to worry you, but I’m in one piece and here ready to work.”]
+~Davor =Davor+1 
+-> dont_worry
+*[“I’ve been better.”]
+-> better
+
+== better==
+ Captain Davor’s eyebrows furrow. “Do you need to take the day off? You have plenty of PTO.”
+ *[“No, I can work.”] -> work_case
+*[“I appreciate the concern, really, but I think I just need to work a case.”]
+~ Davor = Davor +1
+-> work_case
+== work_case==
+“If you’re sure. I actually have a case involving a celebrity for you to look into.”
+hehehe
+*[That doesn't bode well. "I don’t mean to be unappreciative, but is there any chance I could have a different case?”] ->different
+*["I'll look into it, sir."] -> celebrity
+
+ ==dont_worry==
+Captain Davor nods. “Don’t worry about it. You’re a good detective, I’m sure there was a reason. You did pick an unfortunate day to be late though. There’s a case involving a celebrity I need you to look into. He’s currently in my office.” Captain Davor speaks quieter joking, “And between you and me I really want him out of here so I’d appreciate it if you could move this case along.” 
+*“I’ll solve the case as fast as I can.” -> celebrity
+*“I’ve got this. It’ll be like he was never here.” 
+~ Davor = Davor +1
+-> celebrity
+*[This is definitely part of the game. “Could I have a different case?"] ->different
+ == different==
+ Captain Davor pauses for a moment. He talks carefully and gently to try and not sound accusatory. “Are you sure you’re alright? You never ask for case reassignment.”
+ *[“Please. I really cannot take that case today.”]
+*[“Never mind. I’ll take the celebrity case.”]
+ -> END
+
+== celebrity ==
+-> END
+
+
 
 
 
