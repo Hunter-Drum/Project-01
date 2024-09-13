@@ -187,9 +187,9 @@ This is my game.
 == my_player ==
 ~ late = late +1
 *"[Oh I see. It's cute you pretended this was for my sake but now that we're being honest what is this about? What are you getting out of this?"] -> getting_out
-*["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."]
-~ Bee = Bee -1
+*{Bee <= -4}["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."]
 -> not_your
+*{Bee>-4} ["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."] ->control
 
 == getting_out ==
 ~ late = late +1
@@ -238,8 +238,75 @@ DAMN IT!
 -> END
 
 == not_your ==
+You stupid mortal!
+You are dealing with a creature so far beyond yourself! 
+How can you stand here in the presence of power and not cower?
+Not obey?!
+*[“I’m not afraid of you.”]
+That’s your mistake then.
+Humans have lost their fear of the mystical. 
+I’ll remind you. ->nothing
 
+== nothing ==
+*[Nothing.]
+-> sound
+== sound ==
+*[Sound.] -> lights
+== lights ==
+*[Lights.] -> dancing
+== dancing ==
+*[Dancing.] -> laughing
+==laughing==
+*[Laughing.] -> blurred
+== blurred ==
+*[Blurred.] -> movement 
+==movement ==
+*[Movement.] -> mocking
+== mocking==
+*[Mocking]-> pain
+== pain ==
+*[Pain]-> time
+==time ==
+*[Time.] 
+Are you sorry? -> sound1
+== sound1 ==
+*[Sound.] -> lights1
+== lights1 ==
+*[Lights.] -> dancing1
+== dancing1 ==
+*[Dancing.] -> laughing1
+==laughing1==
+*[Laughing.] -> blurred1
+== blurred1 ==
+*[Blurred.] -> movement1 
+==movement1 ==
+*[Movement.] -> mocking1
+==mocking1 ==
+*[Mocking.]-> pain1
+==pain1==
+*[Pain.]
+-> time1
+==time1 ==
+*[Time.] ->save
+
+==save ==
+*[When you come back to your senses there's a teen crouching in front of you with a nuetral face, their lips are moving but you don't know what they're saying. There's a woman behind them covered in blood. You look around and see other creatures that look like Bee all dead- The woman walks up to you, her cane clicking on the floor, and offers her hand.]
+-> saved
+
+==saved
+*[Take her hand.]
+"You're safe now." 
 ->END
+
+
+== control ==
+You humans are all so stupid! 
+Ugh! 
+I can’t do this anymore..
+This isn’t worth it.
+*[With a flash of light the creature is gone. You often wonder if it was ever really there.]
+-> END
+
 
 == deal1 ==
 ~ late = late +1
