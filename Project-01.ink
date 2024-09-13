@@ -63,7 +63,6 @@ OW!!! Hey! I'm here to help you! Your loveless life was just so sad to me! So I 
 * ["Alright then, 'Bee.' What does this real life dating simulator look like?"]
 ~ Bee = Bee + 1
 -> explain
-
  == ignore ==
  ~ Bee = Bee -1
  Hey. Heeeeey! I know you can see me!! Stop doing your laundry! Heeeellloooo! HELLO! 
@@ -188,7 +187,9 @@ This is my game.
 == my_player ==
 ~ late = late +1
 *"[Oh I see. It's cute you pretended this was for my sake but now that we're being honest what is this about? What are you getting out of this?"] -> getting_out
-*["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."] -> not_your
+*["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."]
+~ Bee = Bee -1
+-> not_your
 
 == getting_out ==
 ~ late = late +1
@@ -205,13 +206,11 @@ a bit short on time-
 It doesn't matter. 
 I have and now I can't undo it. 
 ->getting_out2
-
 ==getting_out2 ==
 ~ late = late +1
 *[So we're stuck with each other? Perhaps we can come to an agreement?]
 Yes! 
 The agreement is you play my game and I find you the love of your life! ->getting_out3
-
 == getting_out3 ==
 ~ late = late +1
 *[I need you to understand that is not benefiting me.]
@@ -220,7 +219,6 @@ Okay don't look at me like that.
 FINE!
 No it's not. But it's gonna be super entertaining for me. 
 -> getting_out4
-
 == getting_out4 ==
 ~ late = late +1
 *["No... This isn't going to work. I have a job, and you need something from me I cannot provide. Bee, please. Find someone else. Someone who actually wants your romantic help."]
@@ -235,11 +233,9 @@ I can't..
 DAMN IT!
 
 ->gone
-
 == gone ==
 [The creature disappeares in a flash of light. You gather you things and head to work. To this day part of you wonders if it was even real.]
 -> END
-
 
 == not_your ==
 
@@ -390,7 +386,8 @@ To the fun stuff!
 -> END
 
 == to_work== 
-
+You are running {late} minutes late!
+{late == 0} Good Job! Though I had all these plans for if you were late and now I can't do them. 
 -> END
 
 
