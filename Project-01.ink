@@ -31,12 +31,13 @@ VAR late = 0
 VAR deal = 0
 VAR edited_deal = 0
 VAR laundry =1
+VAR see_E =0
 
 
 ->intro
 
 == intro ==
-{Hello!!! It is your lucky day! You have been selected to test run my real life dating simulator!| }
+{Hello!!! My name is Bee! It is your lucky day! You have been selected to test run my real life dating simulator!| }
 * ["AH-! What the hell are you?!"] -> what
 * [Swat at the strange flying creature.] -> swat
 * ["I did not agree to this."] -> agree
@@ -49,11 +50,11 @@ Haha! You're funny. Everyone wants romance!
 -> romance
 
 == what ==
-Don't be alarmed! I am your friend! My name is Bee and I will be your Narrator and Host! Now don't mind my adorably strange appearence. 
+Don't be alarmed! I am your friend! I will be your Narrator and Host! Now don't mind my adorably strange appearence. 
 -> intro
 
 == swat ==
-~ Bee = Bee - 1
+~ Bee = Bee - 2
 OW!!! Hey! I'm here to help you! Your loveless life was just so sad to me! So I will help your pathetic existance! 
 -> romance
 
@@ -151,7 +152,7 @@ Go ahead and get ready for the day so we can start the dating simulator!
 * {Bee <= -2} ["Where is my wallet?"] -> wallet1 
 * {Bee > -2} [Grab your gun, badge, and wallet then head out the door.]
 ~ wallet = wallet +1
- -> END
+ -> to_work
 
 == wallet1 ==
 Hehehehehe
@@ -173,7 +174,7 @@ You know I'm just trying to help you??
 
 ==b_convo==
 ~ late = late +1
-*[I'll try your game IF you give me back my wallet and don't interfere with my job.] ->deal1
+*["I'll try your game IF you give me back my wallet and don't interfere with my job."] ->deal1
 *["Listen, this isn't helping me. I'm not playing your game. I have actully important things to be doing."]
 Haha
 You think I care?
@@ -186,7 +187,7 @@ This is my game.
 
 == my_player ==
 ~ late = late +1
-*"[Oh I see. It's cute you pretended this was for my sake but now that we're being honest what is this about? What are you getting out of this?"] -> getting_out
+*[Oh I see. It's cute you pretended this was for my sake but now that we're being honest what is this about? What are you getting out of this?"] -> getting_out
 *{Bee <= -4}["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."]
 -> not_your
 *{Bee>-4} ["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."] ->control
@@ -213,7 +214,7 @@ Yes!
 The agreement is you play my game and I find you the love of your life! ->getting_out3
 == getting_out3 ==
 ~ late = late +1
-*[I need you to understand that is not benefiting me.]
+*["I need you to understand that is not benefiting me."]
 Yes it is. 
 Okay don't look at me like that.
 FINE!
@@ -234,7 +235,7 @@ DAMN IT!
 
 ->gone
 == gone ==
-[The creature disappeares in a flash of light. You gather you things and head to work. To this day part of you wonders if it was even real.]
+*[The creature disappeares in a flash of light. You gather your things and head to work. To this day part of you wonder if it was even real.]
 -> END
 
 == not_your ==
@@ -347,14 +348,15 @@ You said so.
 
 == shake==
 ~ deal = deal + 1
-~ Bee = Bee + 5
+~ Bee = Bee + 6
 ~ wallet = wallet +1
 Ha-
 Hahahaha
 HAHAHAHAHAHAHAHhhahahaHAAHAHAhahaHAAAHAa
 God you have no idea how good that feels! I do love making deals! 
 Let's get you to work.
-*[Grab your wallet, badge and gun... The concern is settling in.] -> work
+*[Grab your wallet, badge and gun... The concern is settling in.] 
+-> to_work
 == promise ==
 Fine. 
 Shake my hand and we will have a deal. 
@@ -376,7 +378,7 @@ We're going. -> grab
 + [Kitchen.] -> kitchen
 + [Laundry room.]-> laundryroom
 + [Living room.] ->livingroom
-+ [Bathroom] ->bathroom
++ [Bathroom.] ->bathroom
 == bedroom
 + [Bedside table.]
 {This room looks unlived in-|Nice guess except it's not there.|Stop looking there.|}
@@ -385,7 +387,7 @@ We're going. -> grab
 {Gotta check everywhere, huh?|Hahahahahahahahahahahahah.|}
 -> advance_late
 + [All the pockets.]
-{You clothes are so bad.|This is taking foreveeer!|IF YOU CHECK THE POCKETS ONE MORE GODDAMN TIME-|}
+{Your clothes are so bad.|This is taking foreveeer!|IF YOU CHECK THE POCKETS ONE MORE GODDAMN TIME-|}
 ~ Bee = Bee -1
 
 -> advance_late
@@ -425,12 +427,12 @@ Ew.
 -> advance_late
  
  == livingroom==
- + {late >= 5}[The table by the door.]
- -> end_loop
- + {late < 5} [The table by the door.]
+  + {late < 35} [The table by the door.]
   Not there.
  HAHAHAHAHAHAHAHhhahahaHAAHAHAhahaHAAAHAa
  -> advance_late
+ + {late >= 35}[The table by the door.]
+ -> end_loop
  +[Under couch.]
  {Reasonable spot to look.|I don't think it will magically appear the second time hahahahaha.|There is just dust and cobwebs down there!}
  
@@ -448,13 +450,102 @@ Your wallet!
 THANK GOD! 
 That was so boring! 
 To the fun stuff!
-*[Pick up wallet]
+*[Pick up wallet, badge and gun.]
 ~ wallet= wallet +1
--> END
+-> to_work
 
 == to_work== 
-You are running {late} minutes late!
-{late == 0} Good Job! Though I had all these plans for if you were late and now I can't do them. 
--> END
+You're on track to be {late} minutes late!
+{late == 0:Good Job! Though I had all these plans for if you were late and now I can't do them.}
+{late>=35: WOW! I am impressed! I was hoping you'b be late but that's crazy.|}
+Alright! 
+Our heroine protagonist walks down the busy streets of Los Angeles. {late >30: She is running behind and thus moves quickly to try and avoid any-|It appears to be a day like any other. Little does she know-}
+*[“What are you doing?”]
+Narrating!! 
+Now can I continue? 
+I'm gonna set the scene cause this is boring as hell. 
+-> watched
+
+
+== watched ==
+*[Bee’s narration is lost on you as you suddenly have the strongest feeling of being watched. You should walk faster. Something dangerous is here.] ->to_work2
+*[You want to know what this feeling is. Look around.] -> look_around
+*[“Are you responsible for this feeling of being watched?”]-> you_too
+
+== you_too ==
+Huh? 
+You feel it too??
+I have no idea what that is! 
+Let’s get you to work. 
+Then I can start the REAL narration!
+*{deal == 0} [Stop to look around.] -> look_around
+*{deal == 1} [Stop to look around.] -> break_deal
+*[Go to work.] -> to_work2
+
+== look_around==
+{you_too: I'll just keep setting the scene till then. Good practice!|-walking along their own seperate ways like busy worker ants-}
+*[Your eyes do a sweep of the street. Bee's narration of it being a normal day feels accurate until your eyes fall on a woman. Her hair is black with orange and yellow streaks, scars climb up her left leg and arm all the way to her eye. She holds a cane in her right hand. She's looking back at you. When you make eye contact the corner of her lips twitches into a smile and she waves at you.]
+~ see_E= see_E +1
+-> looking_around1
+== looking_around1 ==
+The sun hangs low in the sky, not yet reaching its afternoon peak- 
+*[She's just a random civilian. Keep walking.] ->to_work2
+*[Wave back.]
+->wave1
+
+== wave1 ==
+Hey- 
+What are you-
+Oh- 
+Haha
+I don't know what you think you see over there that's so-
+Look there's just other dumb extras over there. 
+This is your story!
+They don't matter! 
+We're going to work.
+*[She nods her head towards an alley then walks there. You shouldn't follow her. Go to work.] -> to_work2
+*{deal == 0}[There's something about her that feels dangerous, but somthing tells you to go talk to her. Against your better judgment you follow.] ->objection
+*{deal == 1} [There's something about her that feels dangerous, but somthing tells you to go talk to her. Against your better judgment you follow.] -> break_deal
+
+
+== objection ==
+NO!
+NO DON'T GO THAT WAY!!!
+{e_deal= 1: WE HAD A VERBAL AGREEMENT! THIS ISN'T FOLLOWING THE RULES!|}
+PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE
+*[You ignore Bee and continue towards the woman. When your feet hit the concrete on the other side of the street you notice Bee is no longer trailing behind you. You walk to the alley, cautiously, very well aware this could be a set up for an ambush. As you turn in you see the woman standing beside a teen with very similar features. It seems they were talking before you arrived but now they look at you. ] 
+"Glad you could make it. I was worried you wouldn't follow." 
+-> Entropy
+== Entropy ==
+
+
+
+== break_deal ==
+*[You find you can't. Your legs keep you moving towards the precinct. What is happening-?? Why can't you-]
+Hahahahah
+HAHAHA
+Oh were you trying to get side tracked??
+No need to panic! 
+But we had a heal remember?
+HAHAHAHAHAHAHAHhhahahaHAAHAHAhahaHAAAHAa
+Oh you didn't think you could just break it like that did you? ->break_deal1
+== break_deal1==
+*["How are you doing this?? Stop it! Let me go!!"]
+We're going to work. 
+You have to see Captain Davor, remember? 
+Don't worry you'll feel better soon.
+Haha
+Don't look so sad!
+You agreed to this! 
+Come on now. -> break_deal2
+==break_deal2==
+*[You have no choice but to follow, listening to Bee's shitty narration and slowly spiraling into panic.]
+-> to_work2
+
+
+== to_work2==
+You are walking to work, bitch. 
+->END
+
 
 
