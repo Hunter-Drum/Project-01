@@ -608,7 +608,13 @@ Come on now. -> break_deal2
 == to_work2==
 You arrive to work. 
 Oh this is gonna be good.
-You walk in to see Captain Davor checking his watch. There's a crease on his forhead and his aburn brown hair falls slightly over one eye when his head is tilted down like this. Captain Davor sees you and smiles {late >30: though he seems concerned. “Detective Thatcher! There you are. What happened?”} {late== 1 or 2 or 3 or 4 or 5: teasingly. “{late} minutes and 27 seconds late.} This is very unlike you. I thought you must have been caught up in a horrible accident. Are you alright?” 
+You walk in to see Captain Davor checking his watch. There's a crease on his forhead and a lock of his aburn brown hair falls slightly over one eye when his head is tilted down like this. Despite his built figure you always thought he had a gentleness to him not often see in your fellow police coworkers. 
+*["Don't talk about my boss like that."]
+No.
+-> to_work3
+
+== to_work3 ==
+Captain Davor looks up and sees you. He smiles {late >30: though he seems concerned. “Detective Thatcher! There you are. What happened?”|teasingly. “{late} minutes and 27 seconds late.} This is very unlike you. I thought you must have been caught up in a horrible accident. Are you alright?” 
 *[“Apologies for being late. It won’t happen again, Captain.”] -> dont_worry
 *[“Sorry to worry you, but I’m in one piece and here ready to work.”]
 ~Davor =Davor+1 
@@ -630,18 +636,35 @@ hehehe
 
  ==dont_worry==
 Captain Davor nods. “Don’t worry about it. You’re a good detective, I’m sure there was a reason. You did pick an unfortunate day to be late though. There’s a case involving a celebrity I need you to look into. He’s currently in my office.” Captain Davor speaks quieter joking, “And between you and me I really want him out of here so I’d appreciate it if you could move this case along.” 
-*“I’ll solve the case as fast as I can.” -> celebrity
-*“I’ve got this. It’ll be like he was never here.” 
+*[“I’ll solve the case as fast as I can.”]-> celebrity
+*[“I’ve got this. It’ll be like he was never here.”]
 ~ Davor = Davor +1
 -> celebrity
 *[This is definitely part of the game. “Could I have a different case?"] ->different
  == different==
  Captain Davor pauses for a moment. He talks carefully and gently to try and not sound accusatory. “Are you sure you’re alright? You never ask for case reassignment.”
- *[“Please. I really cannot take that case today.”]
+ *[“Please. I really cannot take that case today.”] -> please
 *[“Never mind. I’ll take the celebrity case.”]
- -> END
+Davor hesitates but nods. "Tell me if you change your mind, alright?"
+ -> celebrity
+ 
+ ==please==
+ Captain Davor pauses again. “Alright. I could trade you with Detective Page. I know he was interested in the celebrity case. They found a body down by the docks. I was thinking of riding along with someone today. Would you mind if I joined you?” 
+*[“I’m sure there’s someone else that could use your help more. I can do this on my own.”] ->differentS
+*[“I would appreciate it.”]
+~Davor = Davor + 1
+ ->differentD
+ 
+== differentD==
+You are doing the Davor path.
+-> END 
+
+ ==differentS==
+ You are doing the Stallion path.
+-> END
 
 == celebrity ==
+You meet the celebrity bitch.
 -> END
 
 
