@@ -30,6 +30,7 @@ VAR radio = 1
 VAR late = 0
 VAR deal = 0
 VAR edited_deal = 0
+VAR laundry =1
 
 
 ->intro
@@ -67,6 +68,7 @@ OW!!! Hey! I'm here to help you! Your loveless life was just so sad to me! So I 
  ~ Bee = Bee -1
  Hey. Heeeeey! I know you can see me!! Stop doing your laundry! Heeeellloooo! HELLO! 
  * ["Did you just- steal my laundry?"] 
+ ~laundry = laundry -1
  You did it to yourself! You were ignoring me and I need you to play my game!
  -> ignore2
  
@@ -121,9 +123,11 @@ Um well-
 Yes? 
 Back on topic! 
 Go ahead and get ready for the day so we can start the dating simulator! 
--> laundry
- == laundry ==
- *["I need my laundry back for that."]
+-> laundry1
+ == laundry1 ==
+ *{laundry==1} ["Alright"] 
+ -> work
+ *{laundry==0} ["I need my laundry back for that."]
  Oh- right. 
  Here.
  Happy now? 
@@ -175,9 +179,74 @@ You know I'm just trying to help you??
 Haha
 You think I care?
 No no. 
+You are my player. 
+I am your narrator. 
+You WILL do what I say. 
+This is my game.
+-> my_player
 
+== my_player ==
+~ late = late +1
+*"[Oh I see. It's cute you pretended this was for my sake but now that we're being honest what is this about? What are you getting out of this?"] -> getting_out
+*["I'm not YOUR anything. I'm a person. I don't know WHAT you are but you will not control me."] -> not_your
+
+== getting_out ==
+~ late = late +1
+I-
+You-
+hahaha
+You are a smart human, huh?
+Alright. 
+Now I said this was a test.
+A test to see if the magical output is worth the energy gained.
+*["I'm sure there are plenty of people who would want to play your game. Why did you pick me?"]
+I was- 
+a bit short on time-
+It doesn't matter. 
+I have and now I can't undo it. 
+->getting_out2
+
+==getting_out2 ==
+~ late = late +1
+*[So we're stuck with each other? Perhaps we can come to an agreement?]
+Yes! 
+The agreement is you play my game and I find you the love of your life! ->getting_out3
+
+== getting_out3 ==
+~ late = late +1
+*[I need you to understand that is not benefiting me.]
+Yes it is. 
+Okay don't look at me like that.
+FINE!
+No it's not. But it's gonna be super entertaining for me. 
+-> getting_out4
+
+== getting_out4 ==
+~ late = late +1
+*["No... This isn't going to work. I have a job, and you need something from me I cannot provide. Bee, please. Find someone else. Someone who actually wants your romantic help."]
+I-
+no!
+It's not fair!
+It's not-
+I- 
+no...
+..
+I can't..
+DAMN IT!
+
+->gone
+
+== gone ==
+[The creature disappeares in a flash of light. You gather you things and head to work. To this day part of you wonders if it was even real.]
+-> END
+
+
+== not_your ==
+
+->END
 
 == deal1 ==
+~ late = late +1
 ... 
 But I reeeealllly want to mess with your job-
 Fine. 
@@ -306,7 +375,7 @@ Ew.
  
 
 == advance_late ==
-~ late = late + 1
+~ late = late + 5
 {Oooo do you have time for this?|Hahaha, look at the clock.|It's funny to watch you scramble.|You're getting later.|Tick Tock.|Okay this feels excessive.|This was fun for a bit but I'm bored now.|Oh my god!! They're by the door okay??|I told you where they were!!! Go get them!|You know where they are. Fuck you.}
 -> search2
 
