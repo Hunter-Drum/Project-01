@@ -513,12 +513,87 @@ NO!
 NO DON'T GO THAT WAY!!!
 {e_deal= 1: WE HAD A VERBAL AGREEMENT! THIS ISN'T FOLLOWING THE RULES!|}
 PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE
-*[You ignore Bee and continue towards the woman. When your feet hit the concrete on the other side of the street you notice Bee is no longer trailing behind you. You walk to the alley, cautiously, very well aware this could be a set up for an ambush. As you turn in you see the woman standing beside a teen with very similar features. It seems they were talking before you arrived but now they look at you. ] 
+*[You ignore Bee and continue towards the woman. When your feet hit the concrete on the other side of the street you notice Bee is no longer trailing behind you. You walk to the alley, cautiously, very well aware this could be a set up for an ambush. As you turn in you see the woman standing beside a teen with very similar features. It seems they were talking before you arrived but now they look at you. Now that you're closer your attention is drawn to the unsettling lightness of their blue eyes.] 
 "Glad you could make it. I was worried you wouldn't follow." 
 -> Entropy
 == Entropy ==
+*["I had half a mind not to. It's pretty suspicious, don't you think? Luring someone down a dark alley?"] -> sus
+*["Who are you?"] -> who
+*["Why did you want me to follow you?"] -> why
+*{sus}["You know what that thing was, then?"] -> know
+
+== sus ==
+"Hm. You're right. All things considered it's a terrible spot to kill someone though. And I'm sure there's something stranger on your mind." -> Entropy
+== who ==
+"You don't need my name. You can call me Entropy. That's Puppet."
+*[The teen, Puppet, waves. Wave back.] 
+"I would ask you to introduce yourself but we know who you are."
+->puppet
+*["What do you want with me?"] ->why
 
 
+ == puppet ==
+ *["Of course. Why wouldn't you, a stranger, know that. Tell me what's happening."] ->know
+ *[That's not omonous.]
+ 
+ "You aren't the one that needs to be scared of me." -> know
+== why ==
+"To save you of course." 
+*[From Bee?] ->know
+== know ==
+"The creature was a fae. Tricky little things. Prone to mischief. Apparetly it had its sights set on you. But don't worry, I have it taken care of. Consider me pest control." 
+*[Why me?] ->me
+*["Oh yeah I can see that."] -> see
+*["I want to help."] -> help
+
+==me==
+"Probably thought I wouldn't talk to you."
+"She's a wanted criminal." 
+"... Yes. Thank you, Puppet." 
+"You shouldn't arrest her though. You need her help."
+*["How wanted?"]
+"Serial killer."
+"Stop talking." -> me2
+
+==me2==
+*[Now that Puppet has mentioned this, you do remember a serial killer matching the description with the scars. Arrest her.] ->arrest
+*[Something more is going on here. "We can talk about that later. For now I want to deal with Bee."] ->help
+
+==arrest==
+*[You reach for your gun. “Sorry but I have a job to do. You’re under arrest.”]
+“Well that’s disappointing. I understand. Afterall, I have a job to do too.” ->arrest2
+== arrest2==
+*[They run in opposite directions. Follow Entropy.] -> arrest3
+*[Follow Puppet.] -> arrest3
+== arrest3 ==
+*[You look follow but they are gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her.]
+->END
+
+
+== see ==
+"It's not here, is it?"
+*[She holds out a card to you. Take it.]
+"I'm hunting it down. I'm guessing it's run off by now, but it it comes back give me a call."  -> see2
+== see2==
+*[Entropy and Puppet step around you and out into the street. You hurry after, several questions on the tip of your tongue but they are already gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her. The hair was different but those scars are striking. ]
+->END
+== help ==
+"You want to help, hm? I'll warn you, once you encounter the supernatural it doesn't tend to leave you."
+*["And if I walk away now?"] -> walk_away
+*["That's fine. I'd rather be prepared."]
+-> help2
+
+== walk_away ==
+"You'll never see me or Bee again."
+*["I'm seeing this through."]-> help2
+*["Then this is goodbye. I never want to encounter something like that again."]-> see3
+== see3==
+*[Entropy and Puppet step around you and out into the street. True to her word, you never see Bee again.]
+-> END
+
+== help2 ==
+"Welcome aboard then." 
+->END
 
 == break_deal ==
 *[You find you can't. Your legs keep you moving towards the precinct. What is happening-?? Why can't you-]
@@ -544,7 +619,7 @@ Come on now. -> break_deal2
 
 
 == to_work2==
-You are walking to work, bitch. 
+You get to work, bitch. 
 ->END
 
 
