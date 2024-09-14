@@ -648,20 +648,171 @@ Davor hesitates but nods. "Tell me if you change your mind, alright?"
  Captain Davor pauses again. “Alright. I could trade you with Detective Page. I know he was interested in the celebrity case. They found a body down by the docks. I was thinking of riding along with someone today. Would you mind if I joined you?” 
 *[“I’m sure there’s someone else that could use your help more. I can do this on my own.”] ->differentS
 *[“I would appreciate it.”]
-~Davor = Davor + 1
+~Davor = Davor + 3
  ->differentD
  
  
+ 
 == differentD==
-You are doing the Davor path.
--> END 
+Ahhh this is so exciting! You’re on the Captain Davor path now! You already have {Davor} romance points with him! 
+Okay okay.
+You head out to the police car. He sits in the passenger's seat because he respects you, I think? 
+Actually that’s annoying. 
+Can he drive? 
+Never mind, it doesn't matter. 
+Don’t worry I’ll narrate him so you can look at the road and still know what’s happening. 
+Captain Davor has a soft expression on his face, his warm chocolate eyes focused ahead-
+*[You do not want to listen to Bee continue to sexualize your boss so you focus on the task ahead. When you get to the docks you investigate the scene with Captain Davor and discuss potential theories, all the while drowning out Bee’s commentary. It gets later.]
+-> cd1
+==cd1 ==
+“Why don’t we stop to get something to eat?” Captain Davor suggests. 
+* {wallet==0}[“Unfortunately I left my wallet at home. I’ll be fine till my shift ends.”]
+“Lunch is on me today.”
+EEeeeeiiiii
+He’s such a gentleman!!! 
+To lunch! 
+-> lunch
+*{wallet==1}[Now that he mentions it you are hungry. “I could get something to eat.”]-> lunch
+*{deal == 0}[“I’d rather keep working.”]
+-> keep_working
+==lunch==
+*[You get to lunch and finish up your shift with one too many awkward moments between you and your captain orchestrated by Bee. You get home exhausted and fall asleep. When you wake up the next day Bee is gone. And the next. And the next. You often wonder if you had some kind of psychotic break. Maybe you should take some PTO…]
+->END
+
+== keep_working ==
+*[You get back to the precinct. You sit down to go over evidence, ignoring Bee’s ramblings when they suddenly go quiet. You look up to see a teen in a face mask standing patiently in front of your desk. “Can I help you?”]
+This isn’t part of the story. 
+Ignore him. 
+“... Yes. You can. I need your help… Very bad.” -> keep2
+== keep2==
+*[He seemed rather neutral about this. {see_E==1: And he looks very similar to the strange woman you had seen earlier.| } “What kind of trouble are you in?”]
+He’s not in trouble. 
+He’s fine!
+Get back to your case haha.
+“Actually I’m not fine. I’ve been… kidnapped.”->keep3
+==keep3 ==
+*[“You hear it too?”]-> keep4
+*[“You’ve been… kidnapped?”] ->keep4
+==keep4 
+Clearly he has not been kidnapped! 
+He’s right there and being way too casual about this! 
+“Could we talk in a different room? Somewhere with less people around.”
+Oh oh he just looked around askance! 
+He’s suspicious! 
+Up to something!
+Arrest him! 
+*[“We can talk here.”]
+"..." 
+Oh wow.
+Jesus he's bad at this. 
+"Raiden couldn't come in herself..." 
+So she sends her kid brother?? 
+Embarrassing.  
+Hey Detective Thatcher. 
+This kid's sister is a serial killer. 
+You should arrest him.  ->keep5
+*[“Alright.”]
+->keep6
+ ==keep5==
+ *["I'm not arresting him. We are going to the interigation room though."] 
+ Noooooo!
+ That's what he wants!
+ ->keep6
+ 
+ ==keep6 ==
+ This is a mistake!
+ Stop walking! 
+ You both suck! 
+ Stop iiiiit! 
+ *[When you enter the room in a very quick movement the teen throws a dart with strange carvings at Bee pinning it to the wall. He walks over and starts to tie it up with what looks like wire.]
+OOOOOWWWWW!!!
+NOOOO!!!
+No, let me go! 
+Please, I don't want to die!
+I don’t wanna die! 
+I’ll be good! 
+I swear I’ll be good! 
+“It’s not my call.” ->keep7
+==keep7==
+*[“Who are you?”]
+"I'm Ermir." -> elaborate
+*[“What is that thing?”]
+"It's a fae." ->elaborate
+ ==elaborate ==
+ *["Care to elaborate?"]
+ "My sister calls us pest control, and these are pests. It uses magic to trick and mess with people for its own gain, usually entertainment. I should get this to my sister now."
+ ->elaborate2
+==elaborate2==
+*["Can I come?"]
+"... Raiden wouldn't like that... but she's better at explaining things... alright." ->elaborate4
+*[Let the teen leave.] -
+-> elaborate3
+==elaborate3
+NO!
+NONONONONONONO!
+PLEASE PLEASE PLEASE
+I DONT WANT TO DIE!
+I'M SO SORRY 
+PLEASE
+*[The teen leaves with Bee screaming for help the whole time. You never encounter anything quite like it again.]
+->END
+== elaborate4 ==
+*[You follow them out of the precinct to a car. {see_E==1: The woman you had seen before sits in the driver's seat. Though now she wears sunglasses and a mask.|A woman with long black hair streaked with yellow and orange sits in the driver's seat. She wears sunglasses and a face mask.} The teen sits in the passenger's seat.]->elaborate5
+==elaborate5==
+“Here.” 
+Please please please.
+Don’t kill me. 
+“Seems you brought a friend?”
+“She wanted an explanation.” 
+“I’ll get to you in a minute. For now…”
+OW
+FUCK! 
+You stupid goddamn huma-
+AAAAHHHHHHH
+Stop stop please stop
+I’m sorry 
+I’m so sorry. 
+“Where’s the fae circle?”
+Hahaha
+You think I’d tell you that?
+AAHHHHHHH
+*[Bee may be awful but this isn’t right. “Hey. That’s enough.”] -> stop
+*[She seems to be handling this. You’re way out of your depth. Let her continue.]
+“I’m going to find it anyway. Make this easier on both of us, yeah?”
+AGH!
+Hhmmmhm
+OW!
+Okay! Okay! 
+Just- please don’t kill me. 
+We can make a deal!
+I’ll tell you where it is and you don’t kill me! 
+“I’m not making a fae deal. Tell me. Now.”
+AAAAAGGGHHHH
+Okay! Oaky! 
+There’s a hotel- 
+It’s Cupid Corner hotel. 
+“That wasn’t too hard, was it?”
+I told you- I told you so don-
+->kills
+==kills==
+*[She kills them. You can’t see her mouth but from the way her eyes crinkle you suspect she’s smiling. She hands the corpse to her brother then turns her attention to you.]
+“I believe you wanted information from me?” 
+-> END
+==stop==
+*[She stops and looks at you, handing Bee back to her brother.]
+"Tch. Sorry but there are human lives at stake."
+-> stop2
+==stop2==
+*[She puts her foot on the gas and drives away with a short wave.]
+->END
+
 
  ==differentS==
- You are doing the Stallion path.
+ You are on the Stallion path.
 -> END
 
 == celebrity ==
-You meet the celebrity bitch.
+You are on the celebrity path.
 -> END
 
 
