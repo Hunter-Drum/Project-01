@@ -646,7 +646,6 @@ Davor hesitates but nods. "Tell me if you change your mind, alright?"
  
  ==please==
  Captain Davor pauses again. “Alright. I could trade you with Detective Page. I know he was interested in the celebrity case. They found a body down by the docks. I was thinking of riding along with someone today. Would you mind if I joined you?” 
-*[“I’m sure there’s someone else that could use your help more. I can do this on my own.”] ->differentS
 *[“I would appreciate it.”]
 ~Davor = Davor + 3
  ->differentD
@@ -807,14 +806,64 @@ I told you- I told you so don-
 ->END
 
 
- ==differentS==
- You are on the Stallion path.
--> END
-
 == celebrity ==
-You are on the celebrity path.
--> END
-
+Woooo you’re on the Edmond track!!!
+Er- Celebrity track. 
+You walk to where the celebrity is waiting.
+He has jet black hair, bright amber eyes, pale smooth skin, a sharp jaw and high cheekbones. 
+He taps his foot impatiently, looking tense. When he hears you enter he starts to talk before fully turning around, “The incompetence here is insane, I have-” when he turns enough to see you he pauses. “Oh. Well hello.” He smiles at you clearly checking you out.
+Hehehe already off to a great start. 
+“You’ll be handling my case? I feel much safer now.” 
+*[Ew. “Go ahead and give me the details on your case.”]
+-> c_case
+==c_case
+{“Ugh- I have a stalker. One with intentions of killing me.” Edmond sits down dramatically. “It’s to be expected when you’re famous I suppose.”| "Whatever."}
+*[You are well aware what his job is but you have to take him down a peg here. “Uh-huh. And what do you do again?”]
+"You're kidding?" He asks annoyed. "I'm an actor! How do you not know who I am??"->TV
+*[“Tell me about this stalker. How do you know they intend to kill you? Do you have a name? A description?”]
+“I know because she ATTACKED me! I’m lucky to be alive. I barely got away.”
+-> c_description
+==TV==
+*[Guess I don't watch a lot of TV. I have more important things to be doing."]
+->c_case
+==c_description
+*[“So you do have a description?”]
+“Yes. She was this tall, she had black hair with poorly dyed orange stripes in it. She wore the stupidest combinations of ripped jeans and fishnets I’ve ever had the displeasure of seeing and way too many piercings. And she was missing an eye. And she had the weirdest cane. She looked ridiculous. It was all caught on a security camera I’m pretty sure.” 
+Wait what. 
+No that’s not the crime he was supposed to report!
+-> c_description1
+==c_description1==
+*[{see_E== 1:That’s the woman you saw earlier. There is no doubt in your mind. Why was she watching you??|} “Any idea why she would want you dead?”]
+“I don’t know, maybe because she’s a crazy stalker?? Just do your job.” 
+You step aside so you can talk to your very favorite narrator. ->new_deal
+==new_deal==
+Ugh-
+Why isn’t this going like how I planned it! 
+That bitch just won’t leave me alone!
+She ruins everything! 
+Maybe this is good. 
+New deal. 
+You arrest her, get her out of my way and I’ll do you a favor. 
+*[“I am going to do my job. We’ll see if it leads to that.”]
+Well she's a killer so I'm sure you'll arrest her.
+This is exciting.
+I don’t often venture into other genres!
+->hunt
+*[“I arrest her and you leave me alone. No more dating game.”]
+DEAL! 
+Shake my hand and you will never see me again on the condition you arrest her! 
+->shake2
+== shake2
+*[Shake Bee's hand.]
+YES!
+WOOOOO! 
+Hahahahah
+Have fun catching your criminal!!!
+Byyeee
+->END
+ ==hunt==
+ Time to hunt down a killer.
+ -> END
 
 
 
