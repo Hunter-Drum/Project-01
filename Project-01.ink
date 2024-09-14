@@ -453,8 +453,7 @@ To the fun stuff!
 
 == to_work== 
 You're on track to be {late} minutes late!
-{late == 0:Good Job! Though I had all these plans for if you were late and now I can't do them.}
-{late == 1 or 2: Man I was hoping you'd be later than that... At least I slowed you down a bit!} 
+{late < 3: Man I was hoping you'd be later than that... At least I slowed you down a bit!|} 
 {late>=35: WOW! I am impressed! I was hoping you'b be late but that's crazy.|}
 Alright! 
 Our heroine protagonist walks down the busy streets of Los Angeles. {late >30: She is running behind and thus moves quickly to try and avoid any-|It appears to be a day like any other. Little does she know-}
@@ -530,7 +529,7 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *["What do you want with me?"] ->why
  == puppet ==
  *["Of course. Why wouldn't you, a stranger, know that. Tell me what's happening."] ->know
- *[That's not omonous.]
+ *["That's not omonous."]
  
  "You aren't the one that needs to be scared of me." -> know
 == why ==
@@ -553,7 +552,7 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *[Now that Puppet has mentioned this, you do remember a serial killer matching the description with the scars. You reach for your gun. “Sorry but I have a job to do. You’re under arrest.”] ->arrest
 *[Something more is going on here. "We can talk about that later. For now I want to deal with Bee."] ->help
 ==arrest==
-“Well that’s disappointing. But I understand. Afterall, I have a job to do too.”
+“Well that’s disappointing. But I understand. Afterall, I also have a job to do too.”
 *[They run in opposite directions. Follow Entropy.] -> arrest2
 *[Follow Puppet.] -> arrest2
 == arrest2 ==
@@ -588,7 +587,7 @@ Hahahahah
 HAHAHA
 Oh were you trying to get side tracked??
 No need to panic! 
-But we had a heal remember?
+But we had a deal remember?
 HAHAHAHAHAHAHAHhhahahaHAAHAHAhahaHAAAHAa
 Oh you didn't think you could just break it like that did you? ->break_deal1
 == break_deal1==
@@ -612,7 +611,6 @@ You walk in to see Captain Davor checking his watch. There's a crease on his for
 *["Don't talk about my boss like that."]
 No.
 -> to_work3
-
 == to_work3 ==
 Captain Davor looks up and sees you. He smiles {late >30: though he seems concerned. “Detective Thatcher! There you are. What happened?”|teasingly. “{late} minutes and 27 seconds late.} This is very unlike you. I thought you must have been caught up in a horrible accident. Are you alright?” 
 *[“Apologies for being late. It won’t happen again, Captain.”] -> dont_worry
@@ -621,7 +619,6 @@ Captain Davor looks up and sees you. He smiles {late >30: though he seems concer
 -> dont_worry
 *[“I’ve been better.”]
 -> better
-
 == better==
  Captain Davor’s eyebrows furrow. “Do you need to take the day off? You have plenty of PTO.”
  *[“No, I can work.”] -> work_case
@@ -633,7 +630,6 @@ Captain Davor looks up and sees you. He smiles {late >30: though he seems concer
 hehehe
 *[That doesn't bode well. "I don’t mean to be unappreciative, but is there any chance I could have a different case?”] ->different
 *["I'll look into it, sir."] -> celebrity
-
  ==dont_worry==
 Captain Davor nods. “Don’t worry about it. You’re a good detective, I’m sure there was a reason. You did pick an unfortunate day to be late though. There’s a case involving a celebrity I need you to look into. He’s currently in my office.” Captain Davor speaks quieter joking, “And between you and me I really want him out of here so I’d appreciate it if you could move this case along.” 
 *[“I’ll solve the case as fast as I can.”]-> celebrity
@@ -654,6 +650,7 @@ Davor hesitates but nods. "Tell me if you change your mind, alright?"
 *[“I would appreciate it.”]
 ~Davor = Davor + 1
  ->differentD
+ 
  
 == differentD==
 You are doing the Davor path.
