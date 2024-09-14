@@ -553,7 +553,7 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *[Something more is going on here. "We can talk about that later. For now I want to deal with Bee."] ->help
 ==arrest==
 “Well that’s disappointing. But I understand. Afterall, I also have a job to do too.”
-*[They run in opposite directions. Follow Entropy.] -> arrest2
+*[They run in opposite directions. Follow {who: Entropy|the woman.}] -> arrest2
 *[Follow Puppet.] -> arrest2
 == arrest2 ==
 *[You follow but they are gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her.]
@@ -563,7 +563,7 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *[She holds out a card to you. Take it.]
 "I'm hunting it down. I'm guessing it's run off by now, but it it comes back give me a call."  -> see2
 == see2==
-*[Entropy and Puppet step around you and out into the street. You hurry after, several questions on the tip of your tongue but they are already gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her. The hair was different but those scars are striking. ]
+*[{who: Entropy and Puppet| The woman and teen} step around you and out into the street. You hurry after, several questions on the tip of your tongue but they are already gone. You never see Bee again and after looking into it you come to learn the woman you met was Raiden Myrsky. A known serial killer. You should have recognized her. The hair was different but those scars are striking. ]
 ->END
 == help ==
 "You want to help, hm? I'll warn you, once you encounter the supernatural it doesn't tend to leave you."
@@ -575,7 +575,7 @@ PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLE
 *["I'm seeing this through."]-> help2
 *["Then this is goodbye. I never want to encounter something like that again."]-> see3
 == see3==
-*[Entropy and Puppet step around you and out into the street. True to her word, you never see Bee or Entropy again.]
+*[{not who: The woman and the teen |Entropy and Puppet } step around you and out into the street. True to her word, you never see any of them again.]
 -> END
 == help2 ==
 "Welcome aboard then." 
